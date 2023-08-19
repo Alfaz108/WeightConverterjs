@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <h1>Weight Converter</h1>
+            <div class="shadow-lg p-5 my-3">
+              <form id="form">
+                <div class="input-group">
+                  <label for="pounds">Weight in Pounds:</label>
+                  <input
+                    id="input"
+                    type="number"
+                    name="pounds"
+                    placeholder="Pounds"
+                    class="pound"
+                  />
+                </div>
+                <div class="input-group my-1">
+                  <label for="kilogram">Weight in Kilogram:</label>
+                  <input
+                    id="input"
+                    type="number"
+                    name="kilogram"
+                    placeholder="Kilogram"
+                  />
+                </div>
+                <div class="input-group my-1">
+                  <label for="gram">Weight in Grams:</label>
+                  <input
+                    id="input"
+                    type="number"
+                    name="gram"
+                    placeholder="Grams"
+                  />
+                </div>
+                <div class="input-group my-1">
+                  <label for="ounces">Weight in Ounces:</label>
+                  <input
+                    id="input"
+                    type="number"
+                    name="ounces"
+                    placeholder="Ounces"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      var form = document.getElementById("form");
+      form.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        var result = event.target.value;
+        var event = event.target.name;
+
+        if (event == "pounds") {
+          console.log(event);
+          console.log(result);
+          document.getElementsByName("kilogram")[0].value = (
+            result * 0.45
+          ).toFixed(2);
+          document.getElementsByName("gram")[0].value = (result * 453).toFixed(
+            2
+          );
+          document.getElementsByName("ounces")[0].value = (result * 16).toFixed(
+            2
+          );
+        }
+
+        if (event == "kilogram") {
+          document.getElementsByName("pounds")[0].value = (
+            result * 2.20462
+          ).toFixed(2);
+          document.getElementsByName("gram")[0].value = (
+            result * 999.9988107
+          ).toFixed(2);
+          document.getElementsByName("ounces")[0].value = (
+            result * 35.2739199982575
+          ).toFixed(2);
+        }
+
+        if (event == "gram") {
+          document.getElementsByName("pounds")[0].value = (
+            result * 0.0022046199998910936436
+          ).toFixed(2);
+          document.getElementsByName("kilogram")[0].value = (
+            result * 0.00099999881070000104337
+          ).toFixed(2);
+          document.getElementsByName("ounces")[0].value = (
+            result * 0.035273919998257498298
+          ).toFixed(2);
+        }
+
+        if (event == "ounces") {
+          document.getElementsByName("pounds")[0].value = (
+            result * 0.062499925668750067054
+          ).toFixed(2);
+          document.getElementsByName("kilogram")[0].value = (
+            result * 0.028349489408912180444
+          ).toFixed(2);
+          document.getElementsByName("gram")[0].value = (
+            result * 28.349489408912180721
+          ).toFixed(2);
+        }
+      });
+    </script>
+  </body>
+</html>
